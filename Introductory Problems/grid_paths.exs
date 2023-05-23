@@ -1,3 +1,5 @@
+# Grid Paths
+#
 # There are 88418 paths in a 7×7 grid from the upper-left square to the lower-left square.
 # Each path corresponds to a 48-character description consisting of
 # characters D (down), U (up), L (left) and R (right).
@@ -31,9 +33,7 @@ defmodule GridPaths do
 
   @moves %{"U" => [-1, 0], "D" => [1, 0], "L" => [0, -1], "R" => [0, 1]}
 
-  defp read_file(file) do
-    File.read!(file) |>String.trim() |> String.split("", trim: true)
-  end
+  defp read_file(file), do: File.read!(file) |>String.trim() |> String.split("", trim: true)
 
   defp is_inside_map([i, j], map_size) do
     cond do
@@ -73,13 +73,9 @@ defmodule GridPaths do
     end
   end
 
-  defp grid_path(move_list, map_size \\ 7) do
-    grid_path(move_list, [1, 1], MapSet.new([[1, 1]]), 0, map_size)
-  end
+  defp grid_path(move_list, map_size \\ 7), do: grid_path(move_list, [1, 1], MapSet.new([[1, 1]]), 0, map_size)
 
-  def run() do
-    read_file("input.txt") |>  grid_path()  |> IO.inspect()
-  end
+  def run(), do: read_file("input.txt") |>  grid_path()  |> IO.inspect()
 
 end
 

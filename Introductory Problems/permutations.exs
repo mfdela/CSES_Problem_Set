@@ -1,3 +1,5 @@
+# Permutations
+#
 # A permutation of integers 1,2,…,n is called beautiful if there are no adjacent elements whose difference is 1
 #
 # Given n , construct a beautiful permutation if such a permutation exists.
@@ -29,22 +31,21 @@
 
 defmodule Permutations do
 
-  def read_file(file) do
-    File.read!(file) |> String.trim() |> String.to_integer()
-  end
+  def read_file(file), do: File.read!(file) |> String.trim() |> String.to_integer()
+
 
   # classic permutations computation
   # defp permutations([]), do: [[]]
   # defp permutations(list), do: for elem <- list, rest <- permutations(list--[elem]), do: [elem|rest]
-  
+
   # But we don't want to generate all permutations before checking them
-  
+
   defp beautiful_permutations(n) when is_integer(n) do
     Enum.to_list(1..n) |> beautiful_permutations(n, [], [])
   end
 
   defp beautiful_permutations([], _, _, sol), do: sol
-  
+
   defp beautiful_permutations(list, length, [], []) do
     for elem <- list, reduce: [] do
       acc ->
@@ -54,9 +55,9 @@ defmodule Permutations do
 
   defp beautiful_permutations(list, length, curr_sol, sol) do
     for elem <- list, abs(elem - hd(curr_sol)) > 1, reduce: sol do
-      acc -> 
+      acc ->
         new_curr = [elem|curr_sol]
-        cond do 
+        cond do
           length(new_curr) == length -> new_curr
           true -> beautiful_permutations(list -- [elem], length, new_curr, acc)
         end
@@ -67,7 +68,7 @@ defmodule Permutations do
   def run() do
     n = read_file("input.txt")
     perm = beautiful_permutations(n)
-    cond do 
+    cond do
       perm == [] -> IO.puts("NO SOLUTION")
       true -> perm |> Enum.join(" ") |> IO.puts()
     end

@@ -1,3 +1,4 @@
+# Bit Strings
 # Your task is to calculate the number of bit strings of length n
 # For example, if n=3, the correct answer is 8,
 # because the possible bit strings are 000, 001, 010, 011, 100, 101, 110, and 111.
@@ -21,21 +22,18 @@
 
 defmodule BitStrings do
 
-  defp read_file(file) do
-    File.read!(file) |> String.trim() |> String.to_integer()
-  end
+  defp read_file(file,) do: File.read!(file) |> String.trim() |> String.to_integer()
 
-  defp bitstrings(n) do
-    # 2 ^^ n is > 10^9+7 for n >= 30
-    # elixir vm is smart enough to compute the result
-    # otherwise we could decompose the result in
-    # 2^30 * 2^30 * ... until we reach 2^n
-    rem(2 ** n, 1000000007)
-  end
+  # 2 ^ n is > 10^9+7 for n >= 30
+  # elixir vm is smart enough to compute the result
+  # otherwise we could decompose the result in
+  # 2^30 * 2^30 * ... until we reach 2^n
+  defp bitstrings(n), do: rem(2 ** n, 1000000007)
 
-  def run() do
-    read_file("input.txt") |> bitstrings() |> IO.puts()
-  end
+
+
+  def run(), do: read_file("input.txt") |> bitstrings() |> IO.puts()
+
 end
 
 BitStrings.run()

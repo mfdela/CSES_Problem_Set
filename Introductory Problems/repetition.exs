@@ -1,5 +1,7 @@
-# You are given a DNA sequence: a string consisting of characters A, C, G, and T. 
-# Your task is to find the longest repetition in the sequence. 
+# Repetition
+#
+# You are given a DNA sequence: a string consisting of characters A, C, G, and T.
+# Your task is to find the longest repetition in the sequence.
 # This is a maximum-length substring containing only one type of character.
 #
 # Input
@@ -10,29 +12,23 @@
 #
 # Constraints
 # 1≤n≤10^6
-# 
+#
 # Example
 #
 # Input:
 # ATTCGGGA
-# 
+#
 # Output:
 # 3
 
 
 defmodule Repetitions do
 
-  defp read_file(file) do
-    File.read!(file)
-    |> String.split("", trim: true)
-  end
-
+  defp read_file(file), do: File.read!(file) |> String.split("", trim: true)
 
   defp check_sequence([h | t]), do: check_sequence(t, h , 1, "", 1)
 
-  defp check_sequence([], _, _, _, longest_seq) do
-    IO.puts(longest_seq)
-  end
+  defp check_sequence([], _, _, _, longest_seq), do: IO.puts(longest_seq)
 
   defp check_sequence([h | t], current_char, current_seq, longest_char, longest_seq) do
     cond do
@@ -42,9 +38,7 @@ defmodule Repetitions do
     end
   end
 
-  def run() do
-    read_file("input.txt") |> check_sequence()
-  end
+  def run(), do: read_file("input.txt") |> check_sequence()
 
 end
 

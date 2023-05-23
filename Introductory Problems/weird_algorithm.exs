@@ -1,3 +1,5 @@
+# Weird Algorithm
+#
 # Consider an algorithm that takes as input a positive integer n.
 # If n is even, the algorithm divides it by two, and if n
 # is odd, the algorithm multiplies it by three and adds one. The algorithm repeats this, until n
@@ -27,13 +29,9 @@
 
 defmodule WeirdAlgorithm do
 
-  defp op(n) when rem(n, 2) == 0 do
-    div(n, 2)
-  end
+  defp op(n) when rem(n, 2) == 0, do: div(n, 2)
 
-  defp op(n) do
-    3 * n + 1
-  end
+  defp op(n), do: 3 * n + 1
 
   defp sequence(1), do: IO.puts(1)
 

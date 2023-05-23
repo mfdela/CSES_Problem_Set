@@ -1,3 +1,5 @@
+# Number Spiral
+#
 # A number spiral is an infinite grid whose upper-left square has number 1.
 # Here are the first five layers of the spiral:
 #
@@ -41,7 +43,7 @@
 
 
 defmodule NumberSpiral do
-  # Each spiral is a n x n square. 
+  # Each spiral is a n x n square.
   # When n is even the spiral starts from the top and end on the left,
   # when n is odd it starts from the left and end on the top
 
@@ -90,5 +92,5 @@ defmodule NumberSpiral do
 
 
 end
-  
+
 NumberSpiral.run()

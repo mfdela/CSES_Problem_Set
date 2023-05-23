@@ -1,3 +1,5 @@
+# Coin Piles
+#
 # You have two coin piles containing a and b coins.
 # On each move, you can either remove one coin from the left pile
 # and two coins from the right pile, or two coins from the left pile
@@ -50,9 +52,7 @@ defmodule CoinPiles do
     end
   end
 
-  def run() do
-    read_file("input.txt") |> coin_piles
-  end
+  def run(), do: read_file("input.txt") |> coin_piles
 
 end
 

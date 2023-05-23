@@ -1,3 +1,5 @@
+# Creating Strings
+#
 # Given a string, your task is to generate all different strings that can be created using its characters.
 #
 # Input
@@ -42,9 +44,7 @@
 
 defmodule CreatingStrings do
 
-  defp read_file(file) do
-    File.read!(file) |> String.trim() |> String.graphemes()
-  end
+  defp read_file(file), do: File.read!(file) |> String.trim() |> String.graphemes()
 
   defp permutations([]), do: [[]]
   defp permutations(list), do: for elem <- list, rest <- permutations(list--[elem]), do: [elem|rest]

@@ -1,3 +1,5 @@
+# Chessboard and Queens
+#
 # Your task is to place eight queens on a chessboard so that
 # no two queens are attacking each other.
 # As an additional challenge, each square is either free or reserved,
@@ -56,9 +58,7 @@ defmodule ChessboardAndQueens do
 
   defp eight_queens(board, queens, sol, cols, n, k \\ 8)
 
-  defp eight_queens(_board, queens, sol, _cols, n,  k) when n == k do
-    MapSet.put(sol, queens)
-  end
+  defp eight_queens(_board, queens, sol, _cols, n,  k) when n == k, do: MapSet.put(sol, queens)
 
   defp eight_queens(board, queens, sol, cols, n,  k) do
     for i <- n..(k-1), j <- cols,
@@ -70,13 +70,10 @@ defmodule ChessboardAndQueens do
     end
   end
 
-  defp eight_queens(board) do
-    eight_queens(board, [], MapSet.new([]), Enum.to_list(0..7), 0)
-  end
+  defp eight_queens(board), do: eight_queens(board, [], MapSet.new([]), Enum.to_list(0..7), 0)
 
-  def run() do
-    read_file("input.txt") |> eight_queens() |> Enum.count() |> IO.inspect()
-  end
+  def run(), do: read_file("input.txt") |> eight_queens() |> Enum.count() |> IO.inspect()
+  
 end
 
 ChessboardAndQueens.run()

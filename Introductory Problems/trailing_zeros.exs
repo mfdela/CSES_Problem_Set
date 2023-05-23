@@ -1,3 +1,5 @@
+# Trailing Zeros
+#
 # Your task is to calculate the number of trailing zeros in the factorial n!
 #
 # For example, 20!=2432902008176640000 and it has 4 trailing zeros.
@@ -21,17 +23,12 @@
 
 
 defmodule TrailingZeros do
-  defp read_file(file) do
-    File.read!(file) |> String.trim() |> String.to_integer()
-  end
+  defp read_file(file), do: File.read!(file) |> String.trim() |> String.to_integer()
 
-  defp trailing_zeros(n) do
-    # to get a zero we need to have a power of 2 and a power of 5 in the factorial
-    # each 2 * 5 gives a 0. Since the exponent of 5 is always < than the exponent
-    # of 2, we just need to count the powers of 5 in the factorial.
-    power_5(n, 1, 0)
-  end
-
+  # to get a zero we need to have a power of 2 and a power of 5 in the factorial
+  # each 2 * 5 gives a 0. Since the exponent of 5 is always < than the exponent
+  # of 2, we just need to count the powers of 5 in the factorial.
+  defp trailing_zeros(n), do: power_5(n, 1, 0)
 
   defp power_5(n, exp, count) do
     f = div(n, 5 ** exp)
@@ -41,9 +38,8 @@ defmodule TrailingZeros do
     end
   end
 
-  def run() do
-    read_file("input.txt") |> trailing_zeros() |> IO.puts
-  end
+  def run(), do: read_file("input.txt") |> trailing_zeros() |> IO.puts
+  
 end
 
 TrailingZeros.run()

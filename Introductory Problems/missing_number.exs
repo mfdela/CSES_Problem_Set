@@ -1,3 +1,5 @@
+# Missing Number
+#
 # You are given all numbers between 1,2,…,n except one. Your task is to find the missing number.
 #
 # Input
@@ -30,11 +32,11 @@ defmodule MissingNumber do
   end
 
   def run() do
-    [n | list] = read_file("input.txt") 
-    sum = list 
+    [n | list] = read_file("input.txt")
+    sum = list
           |> Enum.sum()
     sum_n = div(n * (n + 1), 2)
-    IO.puts("Missing: #{(sum_n - sum)}") 
+    IO.puts("Missing: #{(sum_n - sum)}")
   end
 
 end

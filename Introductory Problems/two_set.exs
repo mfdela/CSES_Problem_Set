@@ -1,3 +1,5 @@
+# Two Sets
+#
 # Your task is to divide the numbers 1,2,…,n into two sets of equal sum.
 #
 # Input
@@ -33,15 +35,12 @@
 
 defmodule TwoSet do
 
-  defp read_file(file) do
-    File.read!(file) |> String.trim() |> String.to_integer()
-  end
+  defp read_file(file), do: File.read!(file) |> String.trim() |> String.to_integer()
 
   defp equal_partitions(1), do: []
   defp equal_partitions(2), do: []
-  defp equal_partitions(3) do
-   [[1, 2], [3]]
-  end
+  defp equal_partitions(3), do: [[1, 2], [3]]
+  defp equal_partitions(4), do: [[1, 4], [2, 3]]
   defp equal_partitions(5), do: []
   defp equal_partitions(6), do: []
 

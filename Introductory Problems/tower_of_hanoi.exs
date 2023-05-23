@@ -1,3 +1,5 @@
+# Tower of Hanoi
+#
 # The Tower of Hanoi game consists of three stacks (left, middle and right)
 # and n round disks of different sizes.
 # Initially, the left stack has all the disks,
@@ -33,9 +35,7 @@
 
 
 defmodule TowerHanoi do
-  defp read_file(file) do
-    File.read!(file) |> String.trim() |> String.to_integer()
-  end
+  defp read_file(file), do: File.read!(file) |> String.trim() |> String.to_integer()
 
   defp towerhanoy(n, source, aux, dest), do: towerhanoy(n, source, aux, dest, [])
 
@@ -43,7 +43,6 @@ defmodule TowerHanoi do
 
   defp towerhanoy(n, source, aux, dest, moves) do
     first_moves = towerhanoy(n-1, source, dest, aux, moves)
-    #IO.puts("-> #{source} #{dest}")
     towerhanoy(n-1, aux, source, dest, first_moves ++ [[source, dest]])
   end
 

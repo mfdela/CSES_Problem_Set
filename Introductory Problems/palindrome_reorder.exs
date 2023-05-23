@@ -1,3 +1,5 @@
+# Palindrome Reorder
+#
 # Given a string, your task is to reorder its letters in such a way
 # that it becomes a palindrome (i.e., it reads the same forwards and backwards).
 #
@@ -21,9 +23,7 @@
 
 defmodule PalindromeReorder do
 
-  defp read_file(file) do
-    File.read!(file) |> String.trim()
-  end
+  defp read_file(file), do: File.read!(file) |> String.trim()
 
   defp palindrome(string) do
     freq = string |> String.graphemes |> Enum.frequencies()
@@ -48,9 +48,8 @@ defmodule PalindromeReorder do
     end
   end
 
-  def run() do
-    read_file("input.txt") |> palindrome()
-  end
+  def run(), do: read_file("input.txt") |> palindrome()
+  
 end
 
 

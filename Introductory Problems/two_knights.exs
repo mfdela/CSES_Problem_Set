@@ -1,3 +1,5 @@
+# Two Knigths
+#
 # Your task is to count for k=1,2,…,n
 # the number of ways two knights can be placed on a k×k
 # chessboard so that they do not attack each other.
@@ -28,9 +30,7 @@
 
 defmodule TwoKnigths do
 
-  defp read_file(file) do
-    File.read!(file) |> String.trim() |> String.to_integer()
-  end
+  defp read_file(file), do: File.read!(file) |> String.trim() |> String.to_integer()
 
   defp knigth_reach([i, j], k) do
     all_pos = MapSet.new([[i - 2, j - 1], [i - 2, j + 1], [i - 1, j + 2], [i + 1, j + 2], [i + 2, j - 1], [i + 2, j + 1], [i - 1, j - 2], [i + 1, j - 2]])

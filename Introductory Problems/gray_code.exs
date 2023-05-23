@@ -1,3 +1,5 @@
+# Gray Code
+#
 # A Gray code is a list of all 2n bit strings of length n,
 # where any two successive strings differ in exactly one bit
 # (i.e., their Hamming distance is one).
@@ -26,9 +28,7 @@
 
 
 defmodule GrayCode do
-  defp read_file(file) do
-    File.read!(file) |> String.trim() |> String.to_integer()
-  end
+  defp read_file(file), do: File.read!(file) |> String.trim() |> String.to_integer()
 
   defp gray_code(0), do: ["0"]
   defp gray_code(1), do: ["0", "1"]
